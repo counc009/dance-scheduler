@@ -50,3 +50,14 @@ less dancers have a run of that length. This can be run using:
 ./solver <dance list> <dancer list> <restricgtions> | ./tester.out <dance list> <dancer list>
 ```
 
+## Parallelization
+*Note: The parallel solver described below has not been sufficiently tested.* 
+
+The par\_solver.c program works the same as the normal solver.c program except that it designed
+to run multiple threads to parallel to explore a wider range of the search space. This parallelization
+is achieved through the OpenMP extension in GCC, and is set to utilize as many threads as the
+host machine has. The actual code changes necessary to make this change are relative simple. One
+note on usage, the results of ./par\_solver.out need to be translated from binary before they can
+be used by the further processing features described above. To do this, pipe the results from the
+./par\_solver.out into ./par\_translator.out which must be provided the number of dances as its one
+command-line argument. 
