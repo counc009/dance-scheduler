@@ -1,3 +1,4 @@
 *.csv
 *.out
 !example/*
+!spring-2020/*
